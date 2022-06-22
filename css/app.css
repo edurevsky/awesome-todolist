@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+:root {
+  --warning: rgba(0, 255, 166, 0.381);
+  --warning-border: rgba(0, 255, 166, 0.6);
+  --done: rgba(152, 251, 152, 0.4);
+  --done-border: rgba(152, 251, 152, 0.6);
+  --undone: rgba(255, 68, 0, 0.4);
+  --undone-border: rgba(255, 68, 0, 0.6);
+}
+
+* {
+  font-family: 'Rubik', 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+}
+
+#todos {
+  text-align: center;
+}
+
+.todo-item {
+  padding: 10px;
+  border-radius: 7.5px;
+}
+
+.empty {
+  border: 1px solid var(--warning-border);
+  background-color: var(--warning);
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 15px 0 15px 0;
+}
+
+.container {
+  max-width: 480px;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  border-bottom: 1px solid #777;
+  top: 0;
+  position: sticky;
+}
+
+.undone {
+  border: 1px solid var(--undone-border);
+  background-color: var(--undone);
+}
+
+.done {
+  border: 1px solid var(--done-border);
+  background-color: var(--done);
+}
+
+.wow {
+  display: grid;
+  margin-bottom: 10px;
+}
+
+#todo-input {
+  margin-bottom: 8px;
+}
