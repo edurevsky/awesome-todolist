@@ -5,12 +5,12 @@ import { Todos } from "../views/todos.js";
 
 export class AppController {
 
-  todoList = [];
   todosView = new Todos();
   todoForm = new TodoForm();
   errorView = new ErrorView();
 
-  constructor() {
+  constructor(todoService) {
+    this.todoService = todoService;
     document.querySelector('#todo-form').innerHTML = this.todoForm.template();
     this.todos = document.querySelector('#todos');
     this.error = document.querySelector('#error');
@@ -41,17 +41,17 @@ export class AppController {
       this.error.innerHTML = this.errorView.template('Please, type a valid name.');
       return;
     }
-    this.todoList.push(todo);
+    this.todoService.addTodo(todo);
     this.update();
   }
 
   update() {
-    this.todos.innerHTML = this.todosView.template(this.todoList);
+    this.todos.innerHTML = this.todosView.template(this.todoService.getAll());
     this.error.innerHTML = '';
     this.todoInput.value  = '';
     const swapDone = id => {
-      let todo = this.todoList.find(t => t.id == id);
-      todo.done = !todo.done;
+      let todo = this.todoService.findById(id);
+      todo.swapDone();
     }
     const li = document.querySelectorAll('ul li');
     li.forEach(item => {
