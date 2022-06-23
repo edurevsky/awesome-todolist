@@ -2,9 +2,15 @@ import { renderError, renderTodoForm, renderTodos } from "./render.js";
 
 function createTodo(name) {
   return {
+    id: Date.now(),
     name: name,
     done: false
   }
+}
+
+export function swapDone(id) {
+  let todo = todoList.find(t => t.id == id);
+  todo.done = !todo.done;
 }
 
 function createTodoFromInput() {
@@ -48,4 +54,12 @@ const update = () => {
   todos.innerHTML = renderTodos(todoList);
   error.innerHTML = '';
   todoInput.value = '';
+  
+  const li = document.querySelectorAll('ul li');
+  li.forEach(item => {
+    item.addEventListener('click', () => {
+      swapDone(item.id);
+      update();
+    });
+  });
 }

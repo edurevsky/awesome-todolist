@@ -1,13 +1,13 @@
 function todoToHtml(todo) {
   let done = todo.done ? 'done' : 'undone';
-  return `<li class="todo-item ${done}">${todo.name}</li>`;
+  return `<li class="todo-item ${done}" id="${todo.id}">${todo.name}</li>`;
 }
 
 export function renderTodos(todos) {
   if (todos.length === 0) {
     return `
-      <ul>
-        <li class="todo-item empty">Start by adding a todo.</li>
+      <ul id="list">
+        <li class="warning empty">Start by adding a todo.</li>
       </ul>
     `
   }
@@ -19,7 +19,7 @@ export function renderTodos(todos) {
 }
 
 export function renderTodoForm() {
-  let random = 'Warm up the caffee...';
+  let random = 'Warm up the coffee...';
   return `
     <div class="wow">
       <input id="todo-input" type="text" placeholder="${random}"/>

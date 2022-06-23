@@ -25,9 +25,20 @@ body {
   text-align: center;
 }
 
+/* */
+.warning {
+  padding: 10px;
+  border-radius: 7.5px;
+}
+
 .todo-item {
   padding: 10px;
   border-radius: 7.5px;
+}
+/* */
+
+.todo-item:hover {
+  cursor: pointer;
 }
 
 .empty {
@@ -42,7 +53,6 @@ ul {
 
 li {
   margin: 15px 0 15px 0;
-  max-width: inherit;
   word-break: break-all;
 }
 
