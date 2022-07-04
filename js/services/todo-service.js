@@ -15,4 +15,10 @@ export class TodoService {
   findById(id) {
     return this.todoList.find(t => t.id == id);
   }
+
+  deleteById(id) {
+    this.todoList = this.todoList.filter(element => {
+      element.id != id
+    });
+  }
 }

@@ -60,8 +60,16 @@ export class AppController {
         item.addEventListener('click', () => {
             todo.swapDone();
             this.update();
+        });
+      } else {
+        item.addEventListener('click', () => {
+          let del = window.confirm('Delete this todo?');
+          if (!del) {
+            return;
           }
-        );
+          this.todoService.deleteById(item.id);
+          this.update();
+        })
       }
     });
   }
