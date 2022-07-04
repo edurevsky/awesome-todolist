@@ -22,6 +22,7 @@ export class Todos {
    */
   todoToHtml(todo) {
     let done = todo.done ? 'done' : 'undone';
-    return `<li class="todo-item ${done}" id="${todo.id}">${todo.name}</li>`;
+    let name = todo.done ? todo.name : todo.name + ' &#10003;';
+    return `<li class="todo-item ${done}" id="${todo.id}">${name}</li>`;
   }
 }

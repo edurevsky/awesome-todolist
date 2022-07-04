@@ -50,11 +50,11 @@ export class AppController {
     this.error.innerHTML = '';
     this.todoInput.value  = '';
 
-    const li = document.querySelectorAll('ul li');
-    if (!li) {
+    const todos = document.querySelectorAll('.todo-item');
+    if (!todos) {
       return;
     }
-    li.forEach(item => {
+    todos.forEach(item => {
       let todo = this.todoService.findById(item.id);
       if (todo && !todo.done) {
         item.addEventListener('click', () => {
