@@ -54,15 +54,11 @@ export class AppController {
     if (!li) {
       return;
     }
-    const swapDone = id => {
-      let todo = this.todoService.findById(id);
-      todo.swapDone();
-    }
     li.forEach(item => {
       let todo = this.todoService.findById(item.id);
       if (todo && !todo.done) {
         item.addEventListener('click', () => {
-            swapDone(item.id);
+            todo.swapDone();
             this.update();
           }
         );
