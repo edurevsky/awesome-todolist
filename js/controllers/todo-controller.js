@@ -63,7 +63,7 @@ export class AppController {
         });
       } else {
         item.addEventListener('click', () => {
-          let del = window.confirm('Delete this todo?');
+          let del = confirm('Delete this todo?');
           if (!del) {
             return;
           }
