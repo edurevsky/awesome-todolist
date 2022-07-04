@@ -25,4 +25,3 @@ export class Todos {
     return `<li class="todo-item ${done}" id="${todo.id}">${todo.name}</li>`;
   }
 }
-

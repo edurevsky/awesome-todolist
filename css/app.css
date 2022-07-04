@@ -25,7 +25,7 @@ body {
   text-align: center;
 }
 
-/* */
+/* =============== */
 .warning {
   padding: 10px;
   border-radius: 7.5px;
@@ -35,11 +35,7 @@ body {
   padding: 10px;
   border-radius: 7.5px;
 }
-/* */
-
-.todo-item:hover {
-  cursor: pointer;
-}
+/* =============== */
 
 .empty {
   border: 1px solid var(--warning-border);
@@ -71,6 +67,10 @@ header {
 .undone {
   border: 1px solid var(--undone-border);
   background-color: var(--undone);
+}
+
+.undone:hover {
+  cursor: pointer;
 }
 
 .done {

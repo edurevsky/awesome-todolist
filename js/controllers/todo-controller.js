@@ -49,17 +49,24 @@ export class AppController {
     this.todos.innerHTML = this.todosView.template(this.todoService.getAll());
     this.error.innerHTML = '';
     this.todoInput.value  = '';
+
+    const li = document.querySelectorAll('ul li');
+    if (!li) {
+      return;
+    }
     const swapDone = id => {
       let todo = this.todoService.findById(id);
       todo.swapDone();
     }
-    const li = document.querySelectorAll('ul li');
     li.forEach(item => {
-      item.addEventListener('click', () => {
-          swapDone(item.id);
-          this.update();
-        }
-      );
+      let todo = this.todoService.findById(item.id);
+      if (todo && !todo.done) {
+        item.addEventListener('click', () => {
+            swapDone(item.id);
+            this.update();
+          }
+        );
+      }
     });
   }
 }
